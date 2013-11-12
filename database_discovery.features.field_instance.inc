@@ -46,7 +46,7 @@ function database_discovery_field_default_field_instances() {
         'size' => 10,
       ),
       'type' => 'text_textfield',
-      'weight' => -2,
+      'weight' => 4,
     ),
   );
 
@@ -86,23 +86,23 @@ function database_discovery_field_default_field_instances() {
         'size' => 255,
       ),
       'type' => 'text_textfield',
-      'weight' => -1,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'node-database_discovery-field_database_description'
-  $field_instances['node-database_discovery-field_database_description'] = array(
+  // Exported field_instance: 'node-database_discovery-field_content_description'
+  $field_instances['node-database_discovery-field_content_description'] = array(
     'bundle' => 'database_discovery',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'A paragraph long description about the content of the database.',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -112,8 +112,8 @@ function database_discovery_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_database_description',
-    'label' => 'Database Description',
+    'field_name' => 'field_content_description',
+    'label' => 'Content Description',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -126,7 +126,7 @@ function database_discovery_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => -3,
+      'weight' => 3,
     ),
   );
 
@@ -180,7 +180,7 @@ function database_discovery_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => -4,
+      'weight' => 1,
     ),
   );
 
@@ -189,7 +189,7 @@ function database_discovery_field_default_field_instances() {
     'bundle' => 'database_discovery',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Primary resource type(s) for this database.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -207,19 +207,100 @@ function database_discovery_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_resource_type',
-    'label' => 'Resource Type',
-    'required' => FALSE,
+    'label' => 'Resource Type(s)',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'taxonomy',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 1,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-database_discovery-field_short_database_description'
+  $field_instances['node-database_discovery-field_short_database_description'] = array(
+    'bundle' => 'database_discovery',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'A one line terse description about the database.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_short_database_description',
+    'label' => 'Short Database Description',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-database_discovery-field_subject'
+  $field_instances['node-database_discovery-field_subject'] = array(
+    'bundle' => 'database_discovery',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_subject',
+    'label' => 'Subject(s)',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 8,
     ),
   );
 
@@ -259,18 +340,23 @@ function database_discovery_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => 6,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('360 ID');
+  t('A one line terse description about the database.');
+  t('A paragraph long description about the content of the database.');
   t('Alternate Database Title');
-  t('Database Description');
+  t('Content Description');
   t('Database Title Linked');
-  t('Resource Type');
+  t('Primary resource type(s) for this database.');
+  t('Resource Type(s)');
   t('Serials Solutions code, for resources tracked in the SS ERM.');
+  t('Short Database Description');
+  t('Subject(s)');
   t('Vendor');
 
   return $field_instances;
