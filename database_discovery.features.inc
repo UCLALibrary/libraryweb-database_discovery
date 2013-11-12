@@ -14,7 +14,7 @@ function database_discovery_node_info() {
       'base' => 'node_content',
       'description' => t('Metadata for discovery of databases.'),
       'has_title' => '1',
-      'title_label' => t('Content Description'),
+      'title_label' => t('Database Title'),
       'help' => '',
     ),
   );
